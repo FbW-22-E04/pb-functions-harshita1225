@@ -1,5 +1,5 @@
 //ADD UP
-
+/*
 function sumOfIntegers(value) {
   let result1 = 0;
   for (let i = 0; i <= value; i++) {
@@ -173,13 +173,12 @@ console.log("is it prime number?", isPrime(23));
 console.log("is it prime number?", isPrime(33));
 
 //13. Validate email
-let dot = ".";
-let attherate = "@";
 
 function validateEmail(email) {
-  let positionDot = email.indexof(".");
-  let positionatrate = email.indexof("@");
-  if (!email.includes("@")) {
+
+  let positionDot = email.indexOf(".");
+  let positionatrate = email.indexOf("@");
+  if (!email.includes("@")) {     
     return false;
   } else if (!email.includes(".")) {
     return false;
@@ -196,10 +195,30 @@ function validateEmail(email) {
     return true;
   }
 }
+*/
+
+// 13.
+
+function validateEmail(email) {
+  if (
+    email.indexOf("@") !== email.lastIndexOf("@") ||
+    email.indexOf(".") === -1 ||
+    email.lastIndexOf(".") < email.indexOf("@") ||
+    [email.length - 1] === "@" ||
+    [email.length - 1] === "." ||
+    email.includes("..") ||
+    email.includes(".@") ||
+    email.includes("@.") ||
+    email[0] === "@"
+  ) {
+    return false;
+  }
+  return true;
+}
 console.log(validateEmail("j@example.com"));
 console.log(validateEmail("@example.com"));
-//console.log(validateEmail("john.smith@com"));
-//console.log(validateEmail("john.smith@email.com"));
-//console.log(validateEmail("john..smith@email.com"));
-//console.log(validateEmail("john.@email.com"));
-//console.log(validateEmail("john@.email.com"));
+console.log(validateEmail("john.smith@com"));
+console.log(validateEmail("john.smith@email.com"));
+console.log(validateEmail("john..smith@email.com"));
+console.log(validateEmail("john.@email.com"));
+console.log(validateEmail("john@.email.com"));
